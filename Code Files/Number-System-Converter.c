@@ -8,9 +8,14 @@ void screenCleaner(void);  // clears the output screen and input buffers
 int userInput(int);    // takes the user input and validates for further opertaions 
 
 // Binary Conversion functions
-void binary_decimal(void);
-void binary_octal(void);
-void binary_hexadecimal(void);
+void binary_decimal(int);
+void binary_octal(int);
+void binary_hexadecimal(int);
+
+// Decimal Conversion functions 
+void decimal_binary(int);
+void decimal_octal(int);
+void decimal_hexadecimal(int);
 
 void main()
 {
@@ -117,14 +122,31 @@ int userInput(int choice)
             welcomeScreen();
         else
         {
-            binary_decimal();
-            binary_octal();
-            binary_hexadecimal();
+            binary_decimal(bi);
+            binary_octal(bi);
+            binary_hexadecimal(bi);
         }
     }
     else if(choice == 2)
     {
-        
+        int deci;
+
+        printf("Enter the decimal: ");
+        scanf("%d", &deci);
+
+        if(deci < 0)
+        {
+            printf("\nError: Decimal number can't be negative. \n");
+            printf("Press any key to continue... \n");
+            getch();
+            welcomeScreen();
+        }
+        else
+        {
+            decimal_binary(deci);
+            decimal_octal(deci);
+            decimal_hexadecimal(deci);
+        }
     }
     else if(choice == 3)
     {
@@ -138,17 +160,34 @@ int userInput(int choice)
         printf("\n>> Unexpected Error occured. << \n");
 }
 
-void binary_decimal()
+// Binary Conversion functions
+void binary_decimal(int bi)
 {
 
 }
 
-void binary_octal()
+void binary_octal(int bi)
 {
 
 }
 
-void binary_hexadecimal()
+void binary_hexadecimal(int bi)
+{
+
+}
+
+// Decimal Conversion functions 
+void decimal_binary(int deci)
+{
+
+}
+
+void decimal_octal(int deci)
+{
+
+}
+
+void decimal_hexadecimal(int deci)
 {
 
 }
