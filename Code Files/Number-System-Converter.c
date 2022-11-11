@@ -27,7 +27,7 @@ label1:
     printf(">>> Welcome to Number System Converter <<< \n");
     printf("-------------------------------------------\n\n");
 
-    printf(">> Choice your input type: \n");
+    printf(">> Choice your input type << \n");
     printf("> 1. Binary \n");
     printf("> 2. Decimal \n");
     printf("> 3. Octal \n");
@@ -54,7 +54,9 @@ label1:
             exitScreen();
             break;
         default:
-            printf("\n>> Invalid Input. Please retry & enter between 1 to 4. << \n");
+            printf("\nError: the number must be between 1 to 4.\n");
+            printf("Press any key to continue... \n");
+            getch();
             goto label1;
     }
 }
@@ -114,20 +116,15 @@ int userInput(int choice)
         if(flag == 1)
             welcomeScreen();
         else
-            printf("You have entered correct binary. \n");
-
-        /* 
-        rem = tempNumber % 10;
-        revNumber = revNumber * 10 + rem; */
-/* 
-        binary_decimal();
-        binary_octal();
-        binary_hexadecimal(); */
-        
+        {
+            binary_decimal();
+            binary_octal();
+            binary_hexadecimal();
+        }
     }
     else if(choice == 2)
     {
-
+        
     }
     else if(choice == 3)
     {
