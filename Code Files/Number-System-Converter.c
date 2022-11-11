@@ -1,7 +1,98 @@
 #include<stdio.h>
+#include<stdlib.h>
 
-int main()
+void welcomeScreen(void);  // Introduction Page & choice screen 
+void exitScreen(void);     // program end screen with credits 
+void screenCleaner(void);  // clears the output screen and input buffers 
+int userInput(int);    // takes the user input and validates for further opertaions 
+
+// Binary Conversion functions
+void binary_decimal(void);
+void binary_octal(void);
+void binary_hexadecimal(void);
+
+void main()
 {
-    printf("Started on 11-Nov-2022 >> 15:34");
-    return 0;
+    welcomeScreen();
+}
+
+void welcomeScreen()
+{
+    int choice;
+
+label1:
+    screenCleaner();
+    printf("-------------------------------------------\n");
+    printf(">>> Welcome to Number System Converter <<< \n");
+    printf("-------------------------------------------\n\n");
+
+    printf(">> Choice your input type: \n");
+    printf("> 1. Binary \n");
+    printf("> 2. Decimal \n");
+    printf("> 3. Octal \n");
+    printf("> 4. Hexadecimal \n");
+    printf("> 5. Exit the Program \n\n");
+    printf("enter the number & Hit ENTER: ");
+
+    switch(choice)
+    {
+        case 1:
+            userInput(1);
+            break;
+        case 2:
+            userInput(2);
+            break;
+        case 3:
+            userInput(3);
+            break;
+        case 4:
+            userInput(4);
+            break;
+        case 5:
+            exitScreen();
+            break;
+        default:
+            printf("\n>> Invalid Input. Please retry & enter between 1 to 4. << \n");
+            goto label1;
+    }
+}
+
+void exitScreen()
+{
+    screenCleaner();
+    printf("-------------------------------------------\n");
+    printf(" >>> Creator: @Alkaison (Ganesh Mourya) <<< \n");
+    printf("-------------------------------------------\n\n");
+
+    printf("> GitHub: https://github.com/Alkaison \n");
+    printf("> Twitter: https://twitter.com/Alkaison \n");
+    printf("> LinkedIn: https://www.linkedin.com/in/Alkaison \n\n");
+
+    exit(0);
+}
+
+void screenCleaner()
+{
+    system("cls");
+    fflush(stdin);
+}
+
+int userInput(int choice)
+{
+
+}
+
+void binary_decimal()
+{
+
+}
+
+void binary_octal()
+{
+
+}
+
+void binary_hexadecimal()
+{
+
 }
