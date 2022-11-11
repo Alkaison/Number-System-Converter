@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<conio.h>
 
 void welcomeScreen(void);  // Introduction Page & choice screen 
 void exitScreen(void);     // program end screen with credits 
@@ -32,7 +33,8 @@ label1:
     printf("> 3. Octal \n");
     printf("> 4. Hexadecimal \n");
     printf("> 5. Exit the Program \n\n");
-    printf("enter the number & Hit ENTER: ");
+    printf("Enter the number & Hit ENTER: ");
+    scanf("%d", &choice);
 
     switch(choice)
     {
@@ -79,7 +81,64 @@ void screenCleaner()
 
 int userInput(int choice)
 {
+    screenCleaner();
 
+    if(choice == 1)
+    {    
+        int bi;
+        int rem, temp=0, flag=0;
+
+        printf("Enter the binary: ");
+        scanf("%d", &bi);
+        
+        temp = bi;
+
+        while(temp > 0)
+        {    
+            rem = temp % 10;
+
+            if(rem == 0 || rem == 1)
+            {  
+                temp = temp / 10;
+            }
+            else
+            {
+                flag = 1;
+                printf("\nError: Binary can only have the digits 0, 1. \n");
+                printf("Press any key to continue... \n");
+                getch();
+                break;
+            }
+        }
+
+        if(flag == 1)
+            welcomeScreen();
+        else
+            printf("You have entered correct binary. \n");
+
+        /* 
+        rem = tempNumber % 10;
+        revNumber = revNumber * 10 + rem; */
+/* 
+        binary_decimal();
+        binary_octal();
+        binary_hexadecimal(); */
+        
+    }
+    else if(choice == 2)
+    {
+
+    }
+    else if(choice == 3)
+    {
+
+    }
+    else if(choice == 4)
+    {
+
+    }
+    else
+        printf("\n>> Unexpected Error occured. << \n");
 }
 
 void binary_decimal()
