@@ -17,6 +17,11 @@ void decimal_binary(int);
 void decimal_octal(int);
 void decimal_hexadecimal(int);
 
+// Octal Conversion functions 
+void octal_binary(int);
+void octal_decimal(int);
+void octal_hexadecimal(int);
+
 void main()
 {
     welcomeScreen();
@@ -150,11 +155,44 @@ int userInput(int choice)
     }
     else if(choice == 3)
     {
+        int octal;
+        int rem, temp=0, flag=0;
 
+        printf("Enter the octal: ");
+        scanf("%d", &octal);
+
+        temp = octal;
+
+        while(temp > 0)
+        {    
+            rem = temp % 10;
+
+            if(rem >= 0 && rem <=7)
+            {  
+                temp = temp / 10;
+            }
+            else
+            {
+                flag = 1;
+                printf("\nError: Octal digits can only be between 0 to 7. \n");
+                printf("Press any key to continue... \n");
+                getch();
+                break;
+            }
+        }
+  
+        if(flag == 1)
+            welcomeScreen();
+        else
+        {
+            octal_binary(octal);
+            octal_decimal(octal);
+            octal_hexadecimal(octal);
+        }
     }
     else if(choice == 4)
     {
-
+        
     }
     else
         printf("\n>> Unexpected Error occured. << \n");
@@ -188,6 +226,22 @@ void decimal_octal(int deci)
 }
 
 void decimal_hexadecimal(int deci)
+{
+
+}
+
+// Octal Conversion functions 
+void octal_binary(int octal)
+{
+
+}
+
+void octal_decimal(int octal)
+{
+
+}
+
+void octal_hexadecimal(int octal)
 {
 
 }
