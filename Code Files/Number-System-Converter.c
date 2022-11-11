@@ -1,6 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<conio.h>
+#include<ctype.h>
+
+// Define Constant KeyWords 
+#define ENTER 13
+#define TAB 9
+#define BKSP 8
 
 void welcomeScreen(void);  // Introduction Page & choice screen 
 void exitScreen(void);     // program end screen with credits 
@@ -21,6 +27,11 @@ void decimal_hexadecimal(int);
 void octal_binary(int);
 void octal_decimal(int);
 void octal_hexadecimal(int);
+
+// Hexadecimal Convesion functions 
+void hexadecimal_binary(char[]);
+void hexadecimal_octal(char[]);
+void hexadecimal_decimal(char[]);
 
 void main()
 {
@@ -192,7 +203,59 @@ int userInput(int choice)
     }
     else if(choice == 4)
     {
-        
+        char hexa[50];
+        char ch;
+        int i=0, j=0, k=0, flag=0;
+
+        printf("Enter the hexadecimal: ");
+
+        while(1)
+        {
+            ch = getch();
+
+            if(ch == ENTER || ch == TAB)
+            {
+                hexa[i] = '\0';
+                break;
+            }
+            else if(ch == BKSP)
+            {
+                if(i > 0)
+                {
+                    i--;
+                    printf("\b \b"); // for backspace
+                }
+            }
+            else
+            {
+                hexa[i++] = ch;
+                printf("%c", ch);
+            }
+        }   
+
+        for(j=0; j<i; j++)
+        {
+            // printf("%d ", isdigit(hexa[j]));
+            if((hexa[j] >= 'A' && hexa[j] <= 'F') || (hexa[j] >= 'a' && hexa[j] <= 'f') || isdigit(hexa[j]))
+                k++;
+            else
+            {
+                flag = 1;
+                printf("\nError: Hexadecimal digits can only be between 0 to 9 & A to F. \n");
+                printf("Press any key to continue... \n");
+                getch();
+                break;
+            }
+        }   
+
+        if(flag == 1)
+            welcomeScreen();
+        else
+        {
+            hexadecimal_binary(hexa[50]);
+            hexadecimal_octal(hexa[50]);
+            hexadecimal_decimal(hexa[50]);
+        }
     }
     else
         printf("\n>> Unexpected Error occured. << \n");
@@ -242,6 +305,22 @@ void octal_decimal(int octal)
 }
 
 void octal_hexadecimal(int octal)
+{
+
+}
+
+// Hexadecimal Convesion functions 
+void hexadecimal_binary(char hexa[])
+{
+
+}
+
+void hexadecimal_octal(char hexa[])
+{
+
+}
+
+void hexadecimal_decimal(char hexa[])
 {
 
 }
