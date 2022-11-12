@@ -11,7 +11,8 @@
 void welcomeScreen(void);  // Introduction Page & choice screen 
 void exitScreen(void);     // program end screen with credits 
 void screenCleaner(void);  // clears the output screen and input buffers 
-int userInput(int);    // takes the user input and validates for further opertaions 
+void userInput(int);    // takes the user input and validates for further opertaions 
+int digitChecker(int, int);  // validates each digit of input number 
 
 // Binary Conversion functions
 void binary_decimal(int);
@@ -102,7 +103,7 @@ void screenCleaner()
     fflush(stdin);
 }
 
-int userInput(int choice)
+void userInput(int choice)
 {
     screenCleaner();
 
@@ -114,22 +115,7 @@ int userInput(int choice)
         printf("Enter the binary: ");
         scanf("%lld", &bi);
 
-        temp = bi;
-
-        while(temp != 0)
-        {    
-            rem = temp % 10;
-
-            if(rem == 0 || rem == 1)
-            {  
-                temp = temp / 10;
-            }
-            else
-            {
-                flag = 1;
-                break;
-            }
-        }
+        flag = digitChecker(bi, choice);
 
         if(flag == 1)
         {
@@ -154,24 +140,7 @@ int userInput(int choice)
         scanf("%lld", &deci);
 
         if(deci > 0)
-        {
-             temp = deci;
-
-            while(temp != 0)
-            {    
-                rem = temp % 10;
-
-                if(rem >= 0 && rem <= 9)
-                {  
-                    temp = temp / 10;
-                }
-                else
-                {
-                    flag = 1;
-                    break;
-                }
-            }
-        }
+            flag = digitChecker(deci, choice);
         else
             flag = 1;
         
@@ -197,22 +166,7 @@ int userInput(int choice)
         printf("Enter the octal: ");
         scanf("%lld", &octal);
 
-        temp = octal;
-
-        while(temp != 0)
-        {    
-            rem = temp % 10;
-
-            if(rem >= 0 && rem <=7)
-            {  
-                temp = temp / 10;
-            }
-            else
-            {
-                flag = 1;
-                break;
-            }
-        }
+        flag = digitChecker(octal, choice);
   
         if(flag == 1)
         {
@@ -239,7 +193,6 @@ int userInput(int choice)
         while(1)
         {
             ch = getch();
-
             if(ch == ENTER || ch == TAB)
             {
                 hexa[i] = '\0';
@@ -262,7 +215,6 @@ int userInput(int choice)
 
         for(j=0; j<i; j++)
         {
-            // printf("%d ", isdigit(hexa[j]));
             if((hexa[j] >= 'A' && hexa[j] <= 'F') || (hexa[j] >= 'a' && hexa[j] <= 'f') || isdigit(hexa[j]))
                 k++;
             else
@@ -288,6 +240,30 @@ int userInput(int choice)
     }
     else
         printf("\n>> Unexpected Error occured. Report to program Administrator << \n");
+}
+
+int digitChecker(int num, int choice)
+{
+    long long int rem, temp=0, flag=0;
+    temp = num;
+
+        while(temp != 0)
+        {    
+            rem = temp % 10;
+
+            if((rem == 0 || rem == 1) && choice == 1) // binary, choice = 1 
+                temp = temp / 10;
+            else if(rem >= 0 && rem <= 9 && choice == 2) // decimal, choice = 2
+                temp = temp / 10;
+            else if(rem >= 0 && rem <=7 && choice == 3) // octal, choice = 3
+                temp = temp / 10;
+            else
+            {
+                flag = 1;
+                break;
+            }
+        }
+    return flag;
 }
 
 // Binary Conversion functions
