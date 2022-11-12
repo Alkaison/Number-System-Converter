@@ -48,7 +48,7 @@ label1:
     printf(">>> Welcome to Number System Converter <<< \n");
     printf("-------------------------------------------\n\n");
 
-    printf(">> Choice your input type << \n");
+    printf("> Select Number Input Type: \n");
     printf("> 1. Binary \n");
     printf("> 2. Decimal \n");
     printf("> 3. Octal \n");
@@ -108,15 +108,15 @@ int userInput(int choice)
 
     if(choice == 1)
     {    
-        int bi;
-        int rem, temp=0, flag=0;
+        long long int bi;
+        long long int rem, temp=0, flag=0;
 
         printf("Enter the binary: ");
-        scanf("%d", &bi);
-        
+        scanf("%lld", &bi);
+
         temp = bi;
 
-        while(temp > 0)
+        while(temp != 0)
         {    
             rem = temp % 10;
 
@@ -127,15 +127,17 @@ int userInput(int choice)
             else
             {
                 flag = 1;
-                printf("\nError: Binary can only have the digits 0, 1. \n");
-                printf("Press any key to continue... \n");
-                getch();
                 break;
             }
         }
 
         if(flag == 1)
+        {
+            printf("\nError: Binary can only have the digits 0, 1. \n");
+            printf("Press any key to continue... \n");
+            getch();
             welcomeScreen();
+        }
         else
         {
             binary_decimal(bi);
@@ -145,12 +147,35 @@ int userInput(int choice)
     }
     else if(choice == 2)
     {
-        int deci;
+        long long int deci;
+        long long int rem, temp=0, flag = 0;
 
         printf("Enter the decimal: ");
-        scanf("%d", &deci);
+        scanf("%lld", &deci);
 
-        if(deci < 0)
+        if(deci > 0)
+        {
+             temp = deci;
+
+            while(temp != 0)
+            {    
+                rem = temp % 10;
+
+                if(rem >= 0 && rem <= 9)
+                {  
+                    temp = temp / 10;
+                }
+                else
+                {
+                    flag = 1;
+                    break;
+                }
+            }
+        }
+        else
+            flag = 1;
+        
+        if(flag == 1)
         {
             printf("\nError: Decimal number can't be negative. \n");
             printf("Press any key to continue... \n");
@@ -166,15 +191,15 @@ int userInput(int choice)
     }
     else if(choice == 3)
     {
-        int octal;
-        int rem, temp=0, flag=0;
+        long long int octal;
+        long long int rem, temp=0, flag=0;
 
         printf("Enter the octal: ");
-        scanf("%d", &octal);
+        scanf("%lld", &octal);
 
         temp = octal;
 
-        while(temp > 0)
+        while(temp != 0)
         {    
             rem = temp % 10;
 
@@ -185,15 +210,17 @@ int userInput(int choice)
             else
             {
                 flag = 1;
-                printf("\nError: Octal digits can only be between 0 to 7. \n");
-                printf("Press any key to continue... \n");
-                getch();
                 break;
             }
         }
   
         if(flag == 1)
+        {
+            printf("\nError: Octal digits can only be between 0 to 7. \n");
+            printf("Press any key to continue... \n");
+            getch();
             welcomeScreen();
+        }
         else
         {
             octal_binary(octal);
@@ -241,15 +268,17 @@ int userInput(int choice)
             else
             {
                 flag = 1;
-                printf("\nError: Hexadecimal digits can only be between 0 to 9 & A to F. \n");
-                printf("Press any key to continue... \n");
-                getch();
                 break;
             }
         }   
 
         if(flag == 1)
+        {
+            printf("\n\nError: Hexadecimal digits can only be between 0 to 9 & A to F. \n");
+            printf("Press any key to continue... \n");
+            getch();
             welcomeScreen();
+        }
         else
         {
             hexadecimal_binary(hexa);
@@ -258,7 +287,7 @@ int userInput(int choice)
         }
     }
     else
-        printf("\n>> Unexpected Error occured. << \n");
+        printf("\n>> Unexpected Error occured. Report to program Administrator << \n");
 }
 
 // Binary Conversion functions
