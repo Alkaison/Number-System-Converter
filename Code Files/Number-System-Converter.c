@@ -29,9 +29,9 @@ void octal_decimal(int);
 void octal_hexadecimal(int);
 
 // Hexadecimal Convesion functions 
-void hexadecimal_binary(char[]);
-void hexadecimal_octal(char[]);
-void hexadecimal_decimal(char[]);
+void hexadecimal_binary(char []);
+void hexadecimal_octal(char []);
+void hexadecimal_decimal(char []);
 
 void main()
 {
@@ -252,9 +252,9 @@ int userInput(int choice)
             welcomeScreen();
         else
         {
-            hexadecimal_binary(hexa[50]);
-            hexadecimal_octal(hexa[50]);
-            hexadecimal_decimal(hexa[50]);
+            hexadecimal_binary(hexa);
+            hexadecimal_octal(hexa);
+            hexadecimal_decimal(hexa);
         }
     }
     else
