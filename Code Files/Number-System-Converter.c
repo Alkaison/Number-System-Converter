@@ -658,7 +658,43 @@ void hexadecimal_binary(char hexa[])
 
 void hexadecimal_octal(char hexa[])
 {
+    int i,num=0,power=0,decimal=0;
 
+    for(i=strlen(hexa)-1;i>=0;i--)
+    {
+        if(hexa[i]=='A'||hexa[i]=='a')
+        {
+            num=10;
+        }
+        else if(hexa[i]=='B'||hexa[i]=='b')
+        {
+            num=11;
+        }
+        else if(hexa[i]=='C'||hexa[i]=='c')
+        {
+            num=12;
+        }
+        else if(hexa[i]=='D'||hexa[i]=='d')
+        {
+            num=13;
+        }
+        else if(hexa[i]=='E'||hexa[i]=='e')
+        {
+            num=14;
+        }
+        else if(hexa[i]=='F'||hexa[i]=='f')
+        {
+            num=15;
+        }
+        else
+        {
+            num=hexa[i]-48;
+        }
+
+        decimal=decimal+num*pow(16,power);
+        power++;
+    }
+    printf("\nDecimal Number: %d",decimal);
 }
 
 void hexadecimal_decimal(char hexa[])
