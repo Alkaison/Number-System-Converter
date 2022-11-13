@@ -1,8 +1,9 @@
 #include<stdio.h>  // for: input & output 
 #include<stdlib.h> // for: exit(0) function 
 #include<conio.h>  // for: getch() function 
-#include<ctype.h>  // for: isdigit(variable-name) function 
+#include<ctype.h>  // for: isdigit() function 
 #include <math.h>  // for: pow(2,0) function 
+#include<string.h> // for: strlen() function
 
 // Define Constant KeyWords: for tracking user key press event (used in: HexaDecimal input validation) 
 #define ENTER 13
@@ -246,6 +247,7 @@ void userInput(int choice)
         }
         else
         {
+            printf("\n");
             conversion_Title();
             hexadecimal_binary(hexa);
             hexadecimal_octal(hexa);
@@ -287,7 +289,7 @@ void conversion_Title()
 {
     printf("\n---------------------------\n");
     printf(">>> Conversion Results <<< \n");
-    printf("---------------------------\n\n");
+    printf("---------------------------\n");
 }
 
 void tryAgain(int choice)
@@ -328,7 +330,7 @@ void binary_decimal(long int bi)
         i++;
     }
     
-    printf("Decimal Number: %d",sum);
+    printf("\nDecimal Number: %d",sum);
 }
 
 void binary_octal(long int bi)
@@ -421,7 +423,7 @@ void decimal_binary(long int deci)
     }
     while(deci !=0);
 
-    printf("\nBinary Number : ");
+    printf("\nBinary Number: ");
     for(i=len-1;i>=0;i--)
     {
         printf("%d",rem[i]);
@@ -441,7 +443,7 @@ void decimal_octal(long int deci)
     }
     while(deci!=0);
 
-    printf("\nOctal Number : ");
+    printf("\nOctal Number: ");
     for(i=len-1;i>=0;i--)
     {
         printf("%d",rem[i]);
@@ -461,7 +463,7 @@ void decimal_hexadecimal(long int deci)
     }
     while(deci!=0);
 
-    printf("\nHexa-Decimal Number : ");
+    printf("\nHexa-Decimal Number: ");
     for(i=len-1;i>=0;i--)
     {
         switch(rem[i])
@@ -513,7 +515,7 @@ void octal_binary(long int oct)
     }
     while(decimal!=0);
 
-    printf("\nBinary Number : ");
+    printf("\nBinary Number: ");
     for(i=len-1;i>=0;i--)
     {
         printf("%d",rem[i]);
@@ -531,7 +533,7 @@ void octal_decimal(long int oct)
         i++;
         oct = oct/10;
     }
-    printf("\nDecimal Number : %d",decimal);
+    printf("\nDecimal Number: %d",decimal);
 }
 
 void octal_hexadecimal(long int oct)
@@ -544,7 +546,7 @@ void octal_hexadecimal(long int oct)
         i++;
         oct = oct/10;
     }
-    
+
     i=0;
     while(decimal!=0)
     {
@@ -554,7 +556,7 @@ void octal_hexadecimal(long int oct)
         len++;
     }
 
-    printf("\nHexa-Decimal Number : ");
+    printf("\nHexa-Decimal Number: ");
     for(i=len-1;i>=0;i--)
     {
         switch(rem[i])
@@ -586,7 +588,72 @@ void octal_hexadecimal(long int oct)
 // Hexadecimal Convesion functions 
 void hexadecimal_binary(char hexa[])
 {
+    int i=0;
 
+    printf("\nBinary Number: ");
+
+    for(i=0;i<strlen(hexa);i++)
+    {
+        switch (hexa[i])
+        {
+        case '0':
+            printf("0000"); 
+            break;
+        case '1':
+            printf("0001"); 
+            break;
+        case '2':
+            printf("0010"); 
+            break;
+        case '3':
+            printf("0011"); 
+            break;
+        case '4':
+            printf("0100"); 
+            break;
+        case '5':
+            printf("0101"); 
+            break;
+        case '6':
+            printf("0110"); 
+            break;
+        case '7':
+            printf("0111"); 
+            break;
+        case '8':
+            printf("1000"); 
+            break;
+        case '9':
+            printf("1001"); 
+            break;
+        case 'A':
+        case 'a':
+            printf("1010"); 
+            break;
+        case 'B':
+        case 'b':
+            printf("1011"); 
+            break;
+        case 'C':
+        case 'c':
+            printf("1100"); 
+            break;
+        case 'D':
+        case 'd':
+            printf("1101"); 
+            break;
+        case 'E':
+        case 'e':
+            printf("1110"); 
+            break;
+        case 'F':
+        case 'f':
+            printf("1111"); 
+            break;
+        default:
+            printf("\n Invalid hexa digit %c ", hexa[i]);
+        }
+    }
 }
 
 void hexadecimal_octal(char hexa[])
