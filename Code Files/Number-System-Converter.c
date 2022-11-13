@@ -384,23 +384,23 @@ void binary_hexadecimal(long int bi)
         switch(remain[i])
         {
             case 10:
-                printf("A"); break;
-
+                printf("A"); 
+                break;
             case 11:
-                printf("B"); break;
-
+                printf("B"); 
+                break;
             case 12:
-                printf("C"); break;
-
+                printf("C"); 
+                break;
             case 13:
-                printf("D"); break;
-
+                printf("D"); 
+                break;
             case 14:
-                printf("E"); break;
-
+                printf("E"); 
+                break;
             case 15:
-                printf("F"); break;
-
+                printf("F"); 
+                break;
             default:
                 printf("%d",remain[i]);
         }
