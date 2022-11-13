@@ -1,3 +1,11 @@
+/*
+  Project Name: Number System Converter 
+  Created By: GANESH MOURYA
+  
+  Github: https://github.com/Alkaison/Number-System-Converter/
+  LinkedIn: https://linkedin.com/in/Alkaison
+  Twitter: https://twitter.com/Alkaison
+*/
 #include<stdio.h>  // for: input & output 
 #include<stdlib.h> // for: exit(0) function 
 #include<conio.h>  // for: getch() function 
