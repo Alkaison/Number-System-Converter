@@ -49,10 +49,6 @@ Number System Converter can do the complex conversion for you quickly. Made usin
 
 ![Number-System-Converter-1](https://github.com/Alkaison/Number-System-Converter/blob/main/Images/Number-System-Converter-5.png)
 
-### 06. Exit Screen
-
-![Number-System-Converter-1](https://github.com/Alkaison/Number-System-Converter/blob/main/Images/Number-System-Converter-6.png)
-
 ## Support 🧩
 
 For personal project support, join our Discord Server [here](https://discord.gg/dF4PHpA "Byte Hub Discord")
