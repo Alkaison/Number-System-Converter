@@ -16,7 +16,7 @@ void screenCleaner(void);    // clears the output screen and input buffers
 void userInput(int);         // takes the user input and validates for further opertaions 
 int digitChecker(int, int);  // validates each digit of input number 
 void conversion_Title(void); // title for all conversion outputs 
-void tryAgain(int);
+void tryAgain(int);          // try Again window 
 
 // Binary Conversion functions 
 void binary_decimal(long int);
@@ -292,6 +292,7 @@ void conversion_Title()
     printf("---------------------------\n");
 }
 
+// try Again window 
 void tryAgain(int choice)
 {
     char ch;
@@ -301,19 +302,19 @@ void tryAgain(int choice)
 
     switch (ch)
     {
-    case 'Y':
-    case 'y':
-        userInput(choice);
-        break;
-    case 'N':
-    case 'n':
-        welcomeScreen();
-        break;
-    default:
-        printf("\nError: invalid input. \n");
-        printf("Press any key to continue... \n");
-        getch();
-        welcomeScreen();
+        case 'Y':
+        case 'y':
+            userInput(choice);
+            break;
+        case 'N':
+        case 'n':
+            welcomeScreen();
+            break;
+        default:
+            printf("\nError: invalid input. \n");
+            printf("Press any key to continue... \n");
+            getch();
+            welcomeScreen();
     }
 }
 
@@ -596,62 +597,62 @@ void hexadecimal_binary(char hexa[])
     {
         switch (hexa[i])
         {
-        case '0':
-            printf("0000"); 
-            break;
-        case '1':
-            printf("0001"); 
-            break;
-        case '2':
-            printf("0010"); 
-            break;
-        case '3':
-            printf("0011"); 
-            break;
-        case '4':
-            printf("0100"); 
-            break;
-        case '5':
-            printf("0101"); 
-            break;
-        case '6':
-            printf("0110"); 
-            break;
-        case '7':
-            printf("0111"); 
-            break;
-        case '8':
-            printf("1000"); 
-            break;
-        case '9':
-            printf("1001"); 
-            break;
-        case 'A':
-        case 'a':
-            printf("1010"); 
-            break;
-        case 'B':
-        case 'b':
-            printf("1011"); 
-            break;
-        case 'C':
-        case 'c':
-            printf("1100"); 
-            break;
-        case 'D':
-        case 'd':
-            printf("1101"); 
-            break;
-        case 'E':
-        case 'e':
-            printf("1110"); 
-            break;
-        case 'F':
-        case 'f':
-            printf("1111"); 
-            break;
-        default:
-            printf("\n Invalid hexa digit %c ", hexa[i]);
+            case '0':
+                printf("0000"); 
+                break;
+            case '1':
+                printf("0001"); 
+                break;
+            case '2':
+                printf("0010"); 
+                break;
+            case '3':
+                printf("0011"); 
+                break;
+            case '4':
+                printf("0100"); 
+                break;
+            case '5':
+                printf("0101"); 
+                break;
+            case '6':
+                printf("0110"); 
+                break;
+            case '7':
+                printf("0111"); 
+                break;
+            case '8':
+                printf("1000"); 
+                break;
+            case '9':
+                printf("1001"); 
+                break;
+            case 'A':
+            case 'a':
+                printf("1010"); 
+                break;
+            case 'B':
+            case 'b':
+                printf("1011"); 
+                break;
+            case 'C':
+            case 'c':
+                printf("1100"); 
+                break;
+            case 'D':
+            case 'd':
+                printf("1101"); 
+                break;
+            case 'E':
+            case 'e':
+                printf("1110"); 
+                break;
+            case 'F':
+            case 'f':
+                printf("1111"); 
+                break;
+            default:
+                printf("\n Invalid hexa digit %c ", hexa[i]);
         }
     }
 }
@@ -663,34 +664,19 @@ void hexadecimal_octal(char hexa[])
     for(i=strlen(hexa)-1;i>=0;i--)
     {
         if(hexa[i]=='A'||hexa[i]=='a')
-        {
             num=10;
-        }
         else if(hexa[i]=='B'||hexa[i]=='b')
-        {
             num=11;
-        }
         else if(hexa[i]=='C'||hexa[i]=='c')
-        {
             num=12;
-        }
         else if(hexa[i]=='D'||hexa[i]=='d')
-        {
             num=13;
-        }
         else if(hexa[i]=='E'||hexa[i]=='e')
-        {
             num=14;
-        }
         else if(hexa[i]=='F'||hexa[i]=='f')
-        {
             num=15;
-        }
         else
-
-        {
             num=hexa[i]-48;
-        }
 
         decimal=decimal+num*pow(16,power);
         power++;
@@ -718,33 +704,19 @@ void hexadecimal_decimal(char hexa[])
     for(i=strlen(hexa)-1;i>=0;i--)
     {
         if(hexa[i]=='A'||hexa[i]=='a')
-        {
             num=10;
-        }
         else if(hexa[i]=='B'||hexa[i]=='b')
-        {
             num=11;
-        }
         else if(hexa[i]=='C'||hexa[i]=='c')
-        {
             num=12;
-        }
         else if(hexa[i]=='D'||hexa[i]=='d')
-        {
             num=13;
-        }
         else if(hexa[i]=='E'||hexa[i]=='e')
-        {
             num=14;
-        }
         else if(hexa[i]=='F'||hexa[i]=='f')
-        {
             num=15;
-        }
         else
-        {
             num=hexa[i]-48;
-        }
 
         decimal=decimal+num*pow(16,power);
         power++;
