@@ -410,23 +410,90 @@ void binary_hexadecimal(long int bi)
 // Decimal Conversion functions 
 void decimal_binary(long int deci)
 {
+    int rem[50],i,len=0;
 
+    do
+    {
+        rem[i]=deci%2;
+        deci=deci/2;
+        i++;
+        len++;
+    }
+    while(deci !=0);
+
+    printf("\nBinary Number : ");
+    for(i=len-1;i>=0;i--)
+    {
+        printf("%d",rem[i]);
+    }
 }
 
 void decimal_octal(long int deci)
 {
+    int rem[50],i,len=0;
 
+    do
+    {
+        rem[i]=deci%8;
+        deci=deci/8;
+        i++;
+        len++;
+    }
+    while(deci!=0);
+
+    printf("\nOctal Number : ");
+    for(i=len-1;i>=0;i--)
+    {
+        printf("%d",rem[i]);
+    }
 }
 
 void decimal_hexadecimal(long int deci)
 {
+    int rem[50],i,len=0;
 
+    do
+    {
+        rem[i]=deci%16;
+        deci=deci/16;
+        i++;
+        len++;
+    }
+    while(deci!=0);
+
+    printf("\nHexa-Decimal Number : ");
+    for(i=len-1;i>=0;i--)
+    {
+        switch(rem[i])
+        {
+            case 10:
+                printf("A"); 
+                break;
+            case 11:
+                printf("B"); 
+                break;
+            case 12:
+                printf("C"); 
+                break;
+            case 13:
+                printf("D"); 
+                break;
+            case 14:
+                printf("E"); 
+                break;
+            case 15:
+                printf("F"); 
+                break;
+            default:
+                printf("%d",rem[i]);
+        }
+    }
 }
 
 // Octal Conversion functions 
 void octal_binary(long int octal)
 {
-
+    
 }
 
 void octal_decimal(long int octal)
