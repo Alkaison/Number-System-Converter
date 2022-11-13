@@ -2,17 +2,20 @@
 #include<stdlib.h> // for: exit(0) function 
 #include<conio.h>  // for: getch() function 
 #include<ctype.h>  // for: isdigit(variable-name) function 
+#include <math.h>  // for: pow(2,0) function 
 
 // Define Constant KeyWords: for tracking user key press event (used in: HexaDecimal input validation) 
 #define ENTER 13
 #define TAB 9
 #define BKSP 8
 
-void welcomeScreen(void);  // Introduction Page & choice screen 
-void exitScreen(void);     // program end screen with credits 
-void screenCleaner(void);  // clears the output screen and input buffers 
-void userInput(int);    // takes the user input and validates for further opertaions 
+void welcomeScreen(void);    // Introduction Page & choice screen 
+void exitScreen(void);       // program end screen with credits 
+void screenCleaner(void);    // clears the output screen and input buffers 
+void userInput(int);         // takes the user input and validates for further opertaions 
 int digitChecker(int, int);  // validates each digit of input number 
+void conversion_Title(void); // title for all conversion outputs 
+void tryAgain(int);
 
 // Binary Conversion functions 
 void binary_decimal(long int);
@@ -130,9 +133,11 @@ void userInput(int choice)
         }
         else
         {
+            conversion_Title();
             binary_decimal(bi);
             binary_octal(bi);
             binary_hexadecimal(bi);
+            tryAgain(choice);
         }
     }
     else if(choice == 2)  // Decimal input validation code 
@@ -157,9 +162,11 @@ void userInput(int choice)
         }
         else
         {
+            conversion_Title();
             decimal_binary(deci);
             decimal_octal(deci);
             decimal_hexadecimal(deci);
+            tryAgain(choice);
         }
     }
     else if(choice == 3)  // Octal input validation code 
@@ -181,9 +188,11 @@ void userInput(int choice)
         }
         else
         {
+            conversion_Title();
             octal_binary(octal);
             octal_decimal(octal);
             octal_hexadecimal(octal);
+            tryAgain(choice);
         }
     }
     else if(choice == 4)  // HexaDecimal input validation code 
@@ -237,9 +246,11 @@ void userInput(int choice)
         }
         else
         {
+            conversion_Title();
             hexadecimal_binary(hexa);
             hexadecimal_octal(hexa);
             hexadecimal_decimal(hexa);
+            tryAgain(choice);
         }
     }
     else  // Very rare case message 
@@ -271,20 +282,129 @@ int digitChecker(int num, int choice)
     return flag;
 }
 
+// title for all conversion outputs 
+void conversion_Title()
+{
+    printf("\n---------------------------\n");
+    printf(">>> Conversion Results <<< \n");
+    printf("---------------------------\n\n");
+}
+
+void tryAgain(int choice)
+{
+    char ch;
+
+    printf("\n\nDo you want to try again [y/N]: ");
+    scanf(" %c", &ch);
+
+    switch (ch)
+    {
+    case 'Y':
+    case 'y':
+        userInput(choice);
+        break;
+    case 'N':
+    case 'n':
+        welcomeScreen();
+        break;
+    default:
+        printf("\nError: invalid input. \n");
+        printf("Press any key to continue... \n");
+        getch();
+        welcomeScreen();
+    }
+}
+
 // Binary Conversion functions
 void binary_decimal(long int bi)
 {
+    int rem,sum=0,i=0;
 
+    while(bi!=0)
+    {
+        rem=bi%10;
+        bi=bi/10;
+        sum=sum+rem*pow(2,i);
+        i++;
+    }
+    
+    printf("Decimal Number: %d",sum);
 }
 
 void binary_octal(long int bi)
 {
+    int i=0,rem,sum=0,remain[100],len=0;
 
+    while(bi!=0)
+    {
+        rem=bi%10;
+        bi=bi/10;
+        sum=sum+rem*pow(2,i);
+        i++;
+    }
+    i=0;
+    while(sum!=0)
+    {
+        remain[i]=sum%8;
+        sum=sum/8;
+        i++;
+        len++;
+    }
+
+    printf("\nOctal Number: ");
+    for(i=len-1;i>=0;i--)
+    {
+        printf("%d",remain[i]);
+    }
 }
 
 void binary_hexadecimal(long int bi)
 {
+    int rem,i=0,sum=0,remain[100],len=0;
 
+    while(bi!=0)
+    {
+        rem=bi%10;
+        bi=bi/10;
+        sum=sum+rem*pow(2,i);
+        i++;
+    }
+    i=0;
+    while(sum!=0)
+    {
+        remain[i]=sum%16;
+        sum=sum/16;
+        i++;
+        len++;
+    }
+
+    printf("\nHexa-Decimal Number: ");
+    for(i=len-1;i>=0;i--)
+    {
+        switch(remain[i])
+        {
+            case 10:
+                printf("A"); break;
+
+            case 11:
+                printf("B"); break;
+
+            case 12:
+                printf("C"); break;
+
+            case 13:
+                printf("D"); break;
+
+            case 14:
+                printf("E"); break;
+
+            case 15:
+                printf("F"); break;
+
+            default:
+                printf("%d",remain[i]);
+        }
+    }
 }
 
 // Decimal Conversion functions 
