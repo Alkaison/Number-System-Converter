@@ -1,9 +1,9 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<conio.h>
-#include<ctype.h>
+#include<stdio.h>  // for: input & output 
+#include<stdlib.h> // for: exit(0) function 
+#include<conio.h>  // for: getch() function 
+#include<ctype.h>  // for: isdigit(variable-name) function 
 
-// Define Constant KeyWords 
+// Define Constant KeyWords: for tracking user key press event (used in: HexaDecimal input validation) 
 #define ENTER 13
 #define TAB 9
 #define BKSP 8
@@ -14,31 +14,33 @@ void screenCleaner(void);  // clears the output screen and input buffers
 void userInput(int);    // takes the user input and validates for further opertaions 
 int digitChecker(int, int);  // validates each digit of input number 
 
-// Binary Conversion functions
-void binary_decimal(int);
-void binary_octal(int);
-void binary_hexadecimal(int);
+// Binary Conversion functions 
+void binary_decimal(long int);
+void binary_octal(long int);
+void binary_hexadecimal(long int);
 
 // Decimal Conversion functions 
-void decimal_binary(int);
-void decimal_octal(int);
-void decimal_hexadecimal(int);
+void decimal_binary(long int);
+void decimal_octal(long int);
+void decimal_hexadecimal(long int);
 
 // Octal Conversion functions 
-void octal_binary(int);
-void octal_decimal(int);
-void octal_hexadecimal(int);
+void octal_binary(long int);
+void octal_decimal(long int);
+void octal_hexadecimal(long int);
 
 // Hexadecimal Convesion functions 
 void hexadecimal_binary(char []);
 void hexadecimal_octal(char []);
 void hexadecimal_decimal(char []);
 
+// C-Program main function 
 void main()
 {
     welcomeScreen();
 }
 
+// Intro screen 
 void welcomeScreen()
 {
     int choice;
@@ -49,15 +51,16 @@ label1:
     printf(">>> Welcome to Number System Converter <<< \n");
     printf("-------------------------------------------\n\n");
 
-    printf("> Select Number Input Type: \n");
-    printf("> 1. Binary \n");
-    printf("> 2. Decimal \n");
-    printf("> 3. Octal \n");
-    printf("> 4. Hexadecimal \n");
+    printf(">> Select Conversion Type: \n");
+    printf("> 1. Binary Conversion \n");
+    printf("> 2. Decimal Conversion \n");
+    printf("> 3. Octal Conversion \n");
+    printf("> 4. Hexadecimal Conversion \n");
     printf("> 5. Exit the Program \n\n");
     printf("Enter the number & Hit ENTER: ");
     scanf("%d", &choice);
 
+    // passes the user input for conversion 
     switch(choice)
     {
         case 1:
@@ -76,13 +79,14 @@ label1:
             exitScreen();
             break;
         default:
-            printf("\nError: the number must be between 1 to 4.\n");
+            printf("\nError: the number must be between 1 to 5.\n");
             printf("Press any key to continue... \n");
             getch();
             goto label1;
     }
 }
 
+// program exit screen (credit page) 
 void exitScreen()
 {
     screenCleaner();
@@ -94,26 +98,26 @@ void exitScreen()
     printf("> Twitter: https://twitter.com/Alkaison \n");
     printf("> LinkedIn: https://www.linkedin.com/in/Alkaison \n\n");
 
-    exit(0);
+    exit(0);  // exit() function to close the program safely 
 }
 
 void screenCleaner()
 {
-    system("cls");
-    fflush(stdin);
+    system("cls");  // clears the output screen 
+    fflush(stdin);  // clears the input buffer 
 }
 
 void userInput(int choice)
 {
     screenCleaner();
 
-    if(choice == 1)
+    if(choice == 1) // Binary input validation code 
     {    
-        long long int bi;
-        long long int rem, temp=0, flag=0;
+        long int bi;
+        int flag = 0;
 
         printf("Enter the binary: ");
-        scanf("%lld", &bi);
+        scanf("%ld", &bi);
 
         flag = digitChecker(bi, choice);
 
@@ -131,13 +135,13 @@ void userInput(int choice)
             binary_hexadecimal(bi);
         }
     }
-    else if(choice == 2)
+    else if(choice == 2)  // Decimal input validation code 
     {
-        long long int deci;
-        long long int rem, temp=0, flag = 0;
+        long int deci;
+        int flag = 0;
 
         printf("Enter the decimal: ");
-        scanf("%lld", &deci);
+        scanf("%ld", &deci);
 
         if(deci > 0)
             flag = digitChecker(deci, choice);
@@ -158,13 +162,13 @@ void userInput(int choice)
             decimal_hexadecimal(deci);
         }
     }
-    else if(choice == 3)
+    else if(choice == 3)  // Octal input validation code 
     {
-        long long int octal;
-        long long int rem, temp=0, flag=0;
+        long int octal;
+        int flag = 0;
 
         printf("Enter the octal: ");
-        scanf("%lld", &octal);
+        scanf("%ld", &octal);
 
         flag = digitChecker(octal, choice);
   
@@ -182,7 +186,7 @@ void userInput(int choice)
             octal_hexadecimal(octal);
         }
     }
-    else if(choice == 4)
+    else if(choice == 4)  // HexaDecimal input validation code 
     {
         char hexa[50];
         char ch;
@@ -238,13 +242,14 @@ void userInput(int choice)
             hexadecimal_decimal(hexa);
         }
     }
-    else
+    else  // Very rare case message 
         printf("\n>> Unexpected Error occured. Report to program Administrator << \n");
 }
 
+// validation function for each single digit of a number according to conversion condition 
 int digitChecker(int num, int choice)
 {
-    long long int rem, temp=0, flag=0;
+    long int rem, temp=0, flag=0;
     temp = num;
 
         while(temp != 0)
@@ -267,49 +272,49 @@ int digitChecker(int num, int choice)
 }
 
 // Binary Conversion functions
-void binary_decimal(int bi)
+void binary_decimal(long int bi)
 {
 
 }
 
-void binary_octal(int bi)
+void binary_octal(long int bi)
 {
 
 }
 
-void binary_hexadecimal(int bi)
+void binary_hexadecimal(long int bi)
 {
 
 }
 
 // Decimal Conversion functions 
-void decimal_binary(int deci)
+void decimal_binary(long int deci)
 {
 
 }
 
-void decimal_octal(int deci)
+void decimal_octal(long int deci)
 {
 
 }
 
-void decimal_hexadecimal(int deci)
+void decimal_hexadecimal(long int deci)
 {
 
 }
 
 // Octal Conversion functions 
-void octal_binary(int octal)
+void octal_binary(long int octal)
 {
 
 }
 
-void octal_decimal(int octal)
+void octal_decimal(long int octal)
 {
 
 }
 
-void octal_hexadecimal(int octal)
+void octal_hexadecimal(long int octal)
 {
 
 }
