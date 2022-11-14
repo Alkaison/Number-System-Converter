@@ -10,7 +10,7 @@
 #include<stdlib.h> // for: exit(0) function 
 #include<conio.h>  // for: getch() function 
 #include<ctype.h>  // for: isdigit() function 
-#include <math.h>  // for: pow(2,0) function 
+#include<math.h>   // for: pow(2,0) function 
 #include<string.h> // for: strlen() function
 
 // Define Constant KeyWords: for tracking user key press event (used in: HexaDecimal input validation) 
@@ -103,7 +103,7 @@ void exitScreen()
 {
     screenCleaner();
     printf("-------------------------------------------\n");
-    printf(" >>> Creator: @Alkaison (Ganesh Mourya) <<< \n");
+    printf(" >>> Creator: Ganesh Mourya (@Alkaison) <<< \n");
     printf("-------------------------------------------\n\n");
 
     printf("> GitHub: https://github.com/Alkaison \n");
@@ -566,6 +566,7 @@ void octal_hexadecimal(long int oct)
     }
 
     printf("\nHexa-Decimal Number: ");
+    
     for(i=len-1;i>=0;i--)
     {
         switch(rem[i])
@@ -698,6 +699,7 @@ void hexadecimal_octal(char hexa[])
         i++;
         len++;
     }
+
     printf("\nOctal Number: ");
     for(i=len-1;i>=0;i--)
     {
