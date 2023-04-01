@@ -4,7 +4,7 @@ Convert any number system to other like Decimal, Binary, Octal, Hexadecimal.
 
 ## Description
 
-Number System Converter can do the complex conversion for you quickly. Made using **C** language by **Ganesh Mourya**.
+Number System Converter can do the complex conversion for you quickly. Made using **C** language by **Ganesh Mourya**. Access the code files [here](Code%20Files/Number-System-Converter.c "Number System Converter") 
 
 > _This program can perform the following conversion:_
 
@@ -31,23 +31,23 @@ Number System Converter can do the complex conversion for you quickly. Made usin
 
 ### 01. Welcome Screen
 
-![Number-System-Converter-1](https://github.com/Alkaison/Number-System-Converter/blob/main/Images/Number-System-Converter-1.png)
+![Number-System-Converter-1](https://i.postimg.cc/HkF9Dmh7/Number-System-Converter-1.png)
 
 ### 02. Binary Conversion
 
-![Number-System-Converter-1](https://github.com/Alkaison/Number-System-Converter/blob/main/Images/Number-System-Converter-2.png)
+![Number-System-Converter-1](https://i.postimg.cc/FR4bzZmr/Number-System-Converter-2.png)
 
 ### 03. Decimal Conversion
 
-![Number-System-Converter-1](https://github.com/Alkaison/Number-System-Converter/blob/main/Images/Number-System-Converter-3.png)
+![Number-System-Converter-1](https://i.postimg.cc/yN9X7GMp/Number-System-Converter-3.png)
 
 ### 04. Octal Conversion
 
-![Number-System-Converter-1](https://github.com/Alkaison/Number-System-Converter/blob/main/Images/Number-System-Converter-4.png)
+![Number-System-Converter-1](https://i.postimg.cc/cHBRnn4Q/Number-System-Converter-4.png)
 
 ### 05. Hexa-Decimal Conversion
 
-![Number-System-Converter-1](https://github.com/Alkaison/Number-System-Converter/blob/main/Images/Number-System-Converter-5.png)
+![Number-System-Converter-1](https://i.postimg.cc/D0fqdw8R/Number-System-Converter-5.png)
 
 ## Support 🧩
 
